@@ -3,8 +3,8 @@
 <div class="container py-5">
     {{msgs}}
     <h1 class="mb-5 text-center">Friend list</h1>
-    <table class="table table-striped table-hover text-center">
-        <thead>
+    <table class="table table-striped table-hover text-center table-bordered shadow justify-content-center">
+        <thead class="table-dark">
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Name</th>
@@ -25,8 +25,8 @@
                     <td><?= $friend->phone ?></td>
                     <td><?= $friend->twitter ?></td>
                     <td>
-                        <a href="/app/edit?id=<?= $friend->id ?>" class="btn btn-primary">Edit</a>
-                        <a href="/app/destroy?id=<?= $friend->id ?>" class="btn btn-danger">Delete</a>
+                        <a href="/app/edit?id=<?= $friend->id ?>" class="btn btn-outline-primary">Edit</a>
+                        <a href="/app/destroy?id=<?= $friend->id ?>" class="btn btn-outline-danger">Delete</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
