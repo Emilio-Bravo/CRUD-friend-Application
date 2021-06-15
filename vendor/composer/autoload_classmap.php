@@ -6,6 +6,8 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Controllers\\friendController' => $baseDir . '/app/controllers/friendController.php',
+    'App\\Models\\Friend' => $baseDir . '/app/models/Friend.php',
     'Bravo\\ORM\\BravoORM' => $vendorDir . '/emilio-bravo/bravo-orm/src/ORM/BravoORM.php',
     'Bravo\\ORM\\DB' => $vendorDir . '/emilio-bravo/bravo-orm/src/Database/DB.php',
     'Bravo\\ORM\\DataHandler' => $vendorDir . '/emilio-bravo/bravo-orm/src/helpers/DataHandler.php',
@@ -33,8 +35,11 @@ return array(
     'Core\\Http\\Request' => $baseDir . '/core/HTTP/Request.php',
     'Core\\Http\\Response' => $baseDir . '/core/HTTP/Response.php',
     'Core\\Http\\Router' => $baseDir . '/core/HTTP/Router.php',
+    'Core\\Http\\Traits\\Renderable' => $baseDir . '/core/Foundation/traits/RenderableTrait.php',
     'Core\\Http\\Traits\\responseMessages' => $baseDir . '/core/Foundation/traits/responseMessagesTrait.php',
     'Core\\Support\\Crypto' => $baseDir . '/core/support/Crypto.php',
+    'Core\\Support\\Files\\HandlesImages' => $baseDir . '/core/support/Files/HandlesImages.php',
+    'Core\\Support\\Files\\HandlesRequestFiles' => $baseDir . '/core/support/Files/handlesRequestFiles.php',
     'Core\\Support\\Flash' => $baseDir . '/core/support/Flash.php',
     'Core\\Support\\HttpSanitizer' => $baseDir . '/core/support/HttpSanitizer.php',
     'Core\\Support\\Validator' => $baseDir . '/core/support/Validator.php',

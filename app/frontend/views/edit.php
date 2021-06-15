@@ -3,7 +3,7 @@
 <div class="container py-5">
     {{msgs}}
     <h1 class="mb-3 mt-5 text-center">Edit friend</h1>
-    <form action="/app/update" method="post">
+    <form action="/app/update" method="post" enctype="multipart/form-data">
         <input type="hidden" name="id" value="<?= $friend->id ?>">
         <div class="row mb-3">
             <div class="col">
@@ -26,6 +26,11 @@
         <div class="mb-3">
             <label for="twitter d-block">Twitter:</label>
             <input type="text" name="twitter" id="twitter" class="form-control" value="<?= $friend->twitter ?>">
+        </div>
+        <img src="/app/file?filename=<?= $friend->image ?>" alt="" class="img-thumbnail">
+        <div class="mb-3">
+            <label for="image">Image:</label>
+            <input type="file" name="image" id="image" class="form-control">
         </div>
         <div class="mb-3">
             <button class="btn btn-success">Edit</button>

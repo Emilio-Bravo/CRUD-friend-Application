@@ -28,8 +28,9 @@ class friendController extends Controller
             $request->input('surname') => 'required|string',
             $request->input('email') => 'required|email',
             $request->input('phone') => 'required|number',
-            $request->input('twitter') => 'required'
+            $request->input('twitter') => 'required',
         ]);
+        $request->imageUploadProccess('uploads', 'image');
         Friend::insert($request->all());
         $this->redirect('/app/')->withSuccess('Friend added successfully');
     }
@@ -52,6 +53,9 @@ class friendController extends Controller
             $request->input('phone') => 'required|number',
             $request->input('twitter') => 'required'
         ]);
+
+        $friend = Friend::find(['id' => $request->input('id')]);
+        $request->imageUpdateProccess('uploads', ['image'], [$friend->image]);
         Friend::update($request->except('id'))->where(['id' => $request->input('id')]);
         $this->redirect('/app/')->withSuccess('Friend updated successfully');
     }
@@ -59,6 +63,7 @@ class friendController extends Controller
     public function destroy(Request $request)
     {
         $friend = Friend::find(['id' => $request->input('id')]);
+        $request->deleteFile('uploads', $friend->image);
         Friend::delete(['id' => $request->input('id')]);
         $this->back()->withSuccess("{$friend->name} {$friend->surname} is no longer your friend");
     }
@@ -75,5 +80,18 @@ class friendController extends Controller
         $this->render('index', [
             'friends' => $friends
         ]);
+    }
+
+    public function profile(Request $request)
+    {
+        $friend = Friend::find(['id' => $request->input('id')]);
+        $this->render('profile', [
+            'friend' => $friend
+        ]);
+    }
+
+    public function getImage(Request $request)
+    {
+        return new \Core\Http\Response($request->getImage('uploads', $request->input('filename')));
     }
 }

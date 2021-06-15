@@ -25,6 +25,7 @@
                     <td><?= $friend->phone ?></td>
                     <td><?= $friend->twitter ?></td>
                     <td>
+                        <a href="/app/profile?id=<?= $friend->id ?>" class="btn btn-outline-secondary">View</a>
                         <a href="/app/edit?id=<?= $friend->id ?>" class="btn btn-outline-primary">Edit</a>
                         <a href="/app/destroy?id=<?= $friend->id ?>" class="btn btn-outline-danger">Delete</a>
                     </td>
