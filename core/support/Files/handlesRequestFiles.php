@@ -36,7 +36,7 @@ trait HandlesRequestFiles
 
     public function getFileTmpName($key)
     {
-        return $_FILES[$key]['size'];
+        return $_FILES[$key]['tmp_name'];
     }
 
     public function getAllUploadedFiles()
