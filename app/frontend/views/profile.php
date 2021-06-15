@@ -2,7 +2,7 @@
 {{header}}
 <div class="container">
     <div class="card mt-5 mb-5 shadow">
-        <img src="/app/file?filename=<?= $friend->image ?>">
+        <img src="/app/file?filename=<?= $friend->image ?>" class="img-thumbnail">
         <div class="card-body">
             <h5 class="card-title"><?= "{$friend->name} {$friend->surname}" ?></h5>
             <p class="card-text">Twitter: <?= $friend->twitter ?></p>
